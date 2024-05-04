@@ -88,7 +88,7 @@ class DnD(Quiz):
         correct_answer = self.questions[question]
         if user_answer.lower() == correct_answer.lower():
             self.streak += 1
-            if self.streak % 5 == 0:
+            if self.streak % 5 == 0 and self.hp < self.max_hp:
                 self.hp += 1
             print(random.choice(list(self.praises)))
         else:
