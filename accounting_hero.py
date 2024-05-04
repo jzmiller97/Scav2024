@@ -88,7 +88,6 @@ class accounting_hero(Quiz):
         for i in range(3):
             curr_set.add(random.choice(list(self.oper_set)))
         display(curr_set, self.score)
-        print(curr_set)
         answer = get_input_within_time_limit("What operations were used?", self.time_limit, self.time_insults)
         self.check_answer(curr_set, answer)
 
@@ -112,9 +111,9 @@ class accounting_hero(Quiz):
 
 if __name__ == "__main__":
     print_intro()
-    time_insults: set[str] = {"Too slow for the Big Four."} # read_spreadsheet_to_set("time_insults.xlsx")
-    acc_praises: set[str] = {"Christmas Bonus?"} # read_spreadsheet_to_set("acc_praises.xlsx")
-    acc_insults: set[str] = {"Where did you go to college? Northwestern?"} # read_spreadsheet_to_set("acc_insults.xlsx")
+    time_insults: set[str] = {"Too slow for the Big Four.", "Missing an entry?"} # read_spreadsheet_to_set("time_insults.xlsx")
+    acc_praises: set[str] = {"Christmas Bonus?", "Adding to your score!"} # read_spreadsheet_to_set("acc_praises.xlsx")
+    acc_insults: set[str] = {"Where did you go to college? Northwestern?", "How are you an accountant? You can barely count."} # read_spreadsheet_to_set("acc_insults.xlsx")
     quiz: "accounting_hero" = accounting_hero(time_insults, acc_praises, acc_insults, int(sys.argv[1]))
     while True:
         quiz.print_gamestate()
